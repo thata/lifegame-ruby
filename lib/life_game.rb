@@ -46,13 +46,13 @@ private
 
   def next_generation_cell(x, y)    
     if alive?(x, y)
-      if neibors(x, y) < 2 || neibors(x, y) >= 4
+      if num_of_neibors(x, y) < 2 || num_of_neibors(x, y) >= 4
         return false
       else
         return true
       end
     else
-      if neibors(x, y) == 3
+      if num_of_neibors(x, y) == 3
         return true
       else
         return false
@@ -64,7 +64,7 @@ private
     return @cell[y][x]
   end
 
-  def neibors(x, y)
+  def num_of_neibors(x, y)
     n = 0
     _x = 0
     _y = 0
