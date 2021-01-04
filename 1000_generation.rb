@@ -2,22 +2,18 @@
 
 require './lib/life_game'
 
-# 計測開始
-StackProf.start
-
-height, width = `stty size`.split.map(&:to_i)
-game = LifeGame.new(height, width)
-
 trap(:INT) do
   exit
 end
 
-1000.times do
-  print "\e[1;1H"
-  game.dump_cell
-  game.next_generation
-end
+# ブロック内の処理を計測
+StackProf.run(out: '/tmp/stackprof.dump') do
+  height, width = `stty size`.split.map(&:to_i)
+  game = LifeGame.new(height, width)
 
-# 計測終了
-StackProf.stop
-StackProf.results('/tmp/stackprof.dump')
+  1000.times do
+    print "\e[1;1H"
+    game.dump_cell
+    game.next_generation
+  end
+end
