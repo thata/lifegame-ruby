@@ -1,4 +1,4 @@
-# bundle exec ruby main.rb
+# bundle exec ruby 1000_generation.rb
 
 require './lib/life_game'
 
