@@ -3,7 +3,7 @@
 require './lib/life_game'
 
 # 計測開始
-StackProf.stop
+StackProf.start
 
 height, width = `stty size`.split.map(&:to_i)
 game = LifeGame.new(height, width)
