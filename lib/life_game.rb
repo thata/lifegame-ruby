@@ -34,8 +34,12 @@ class LifeGame
     @cell = new_cell
   end
 
-  def dump_cell
+  def cell_str
     @cell.map {|row| row.map {|col| col ? "*" : " " }.join}.join("\n")
+  end
+
+  def dump_cell
+    print cell_str
   end
 
 private

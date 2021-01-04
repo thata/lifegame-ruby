@@ -11,7 +11,7 @@ end
 
 while true
   print "\e[1;1H"
-  print game.dump_cell
+  game.dump_cell
   game.next_generation
   sleep 0.1
 end
